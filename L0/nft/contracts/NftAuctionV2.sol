@@ -3,7 +3,7 @@ pragma solidity ^0.8.17;
 
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
-contract NftAuction is Initializable {
+contract NftAuctionV2 is Initializable {
     // 结构体
     struct Auction{
         // 卖家地址
@@ -99,6 +99,10 @@ contract NftAuction is Initializable {
         auction.highestBidder = msg.sender;
         auction.highestBid = msg.value;
     }
-    
+
+
+    function testHello() public pure returns(string memory){
+        return "Hello World!";
+    }
 
 }

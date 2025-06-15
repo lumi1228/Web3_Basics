@@ -26,7 +26,7 @@ describe("test upgrade",async function(){
     it('Should be able to deploy',async function(){
 
         // 1、部署业务合约
-        await deployments.fixture(["depolyNftAuction"]);//deployNftAuction 配置的tags
+        await deployments.fixture(["deployNftAuction"]);//deployNftAuction 配置的tags
         const nftAuctionProxy = await deployments.get("NftAuctionProxy"); // 获取代理合约的地址
 
         // 2、调用createAuction创建拍卖

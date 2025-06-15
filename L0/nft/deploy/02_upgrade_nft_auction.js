@@ -10,14 +10,14 @@ module.exports = async function ({getNamedAccounts, deployments }) {
   // 读取 .cache/proxyNftAuction.json 文件
   const storePath = path.resolve(__dirname, "./.cache/proxyNftAuction.json");
   const storeData = fs.readFileSync(storePath, "utf-8"); //readFileSync 读取文件内容
-  const { proxyAddress, implAddress , abi} = JSON.parse(storeData); // proxyAddress 代理合约地址 implAddress 实现合约地址 abi 用于获取合约的ABI接口
+  const { ProxyAddress, implAddress , abi} = JSON.parse(storeData); // ProxyAddress 代理合约地址 implAddress 实现合约地址 abi 用于获取合约的ABI接口
   
   // 升级版的合约 
   const NftAuctionV2 = await ethers.getContractFactory("NftAuctionV2");
 
   // 升级代理合约
   const nftAuctionProxyV2 = await upgrades.upgradeProxy( 
-    proxyAddress, // 代理合约地址
+    ProxyAddress, // 代理合约地址
     NftAuctionV2, // 实现合约
     // {
     //   kind: "uups", // uups升级模式
